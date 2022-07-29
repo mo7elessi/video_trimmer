@@ -176,7 +176,7 @@ class TrimEditor extends StatefulWidget {
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
-    this.maxVideoLength = const Duration(milliseconds: 15),
+    this.maxVideoLength = const Duration(milliseconds: 3),
     this.circleSize = 5.0,
     this.borderWidth = 3,
     this.scrubberWidth = 1,
