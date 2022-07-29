@@ -192,7 +192,7 @@ class TrimEditor extends StatefulWidget {
     this.thumbnailQuality = 75,
     this.showDuration = true,
     this.sideTapSize = 24,
-    this.durationTextStyle = const TextStyle(color: Colors.yellow),
+    this.durationTextStyle = const TextStyle(color: Colors.white),
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
