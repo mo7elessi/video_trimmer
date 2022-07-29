@@ -287,7 +287,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
           _animationController = AnimationController(
             vsync: this,
             duration:
-                Duration(milliseconds: (sliderEnd - sliderStart).toInt()),
+                Duration(milliseconds: (_videoEndPos - _videoStartPos).toInt()),
           );
           //
 
