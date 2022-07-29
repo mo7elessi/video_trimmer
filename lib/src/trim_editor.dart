@@ -176,8 +176,8 @@ class TrimEditor extends StatefulWidget {
   const TrimEditor({
     Key? key,
     required this.trimmer,
-    sliderStart=5;
-    sliderEnd=10;
+    this.sliderStart=5;
+    this.sliderEnd=10;
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
