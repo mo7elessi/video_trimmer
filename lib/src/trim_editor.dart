@@ -15,7 +15,10 @@ class TrimEditor extends StatefulWidget {
 
   /// For defining the total trimmer area height
   final double viewerHeight;
-
+  /// foe defining initial start for the trimmer slider
+  final double sliderStart;
+  /// foe defining initial end for the trimmer slider
+  final double sliderEnd;
   /// For defining the image fit type of each thumbnail image.
   ///
   /// By default it is set to `BoxFit.fitHeight`.
@@ -173,6 +176,8 @@ class TrimEditor extends StatefulWidget {
   const TrimEditor({
     Key? key,
     required this.trimmer,
+    sliderStart=5;
+    sliderEnd=10;
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
@@ -282,8 +287,9 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
           _animationController = AnimationController(
             vsync: this,
             duration:
-                Duration(milliseconds: (_videoEndPos - _videoStartPos).toInt()),
+                Duration(milliseconds: (sliderEnd - sliderStart).toInt()),
           );
+          //
 
           _scrubberAnimation = _linearTween.animate(_animationController!)
             ..addListener(() {
