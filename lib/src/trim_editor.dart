@@ -15,10 +15,10 @@ class TrimEditor extends StatefulWidget {
 
   /// For defining the total trimmer area height
   final double viewerHeight;
-  /// foe defining initial start for the trimmer slider
-  final double sliderStart;
-  /// foe defining initial end for the trimmer slider
-  final double sliderEnd;
+  /// For defining initial start for the trimmer slider
+//   final double sliderStart;
+//   /// For defining initial end for the trimmer slider
+//   final double sliderEnd;
   /// For defining the image fit type of each thumbnail image.
   ///
   /// By default it is set to `BoxFit.fitHeight`.
@@ -176,8 +176,8 @@ class TrimEditor extends StatefulWidget {
   const TrimEditor({
     Key? key,
     required this.trimmer,
-    this.sliderStart=5;
-    this.sliderEnd=10;
+//     this.sliderStart=5;
+//     this.sliderEnd=10;
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
@@ -192,7 +192,7 @@ class TrimEditor extends StatefulWidget {
     this.thumbnailQuality = 75,
     this.showDuration = true,
     this.sideTapSize = 24,
-    this.durationTextStyle = const TextStyle(color: Colors.white),
+    this.durationTextStyle = const TextStyle(color: Colors.yellow),
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
