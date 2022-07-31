@@ -67,18 +67,24 @@ class ThumbnailViewer extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: _imageBytes.length,
               itemBuilder: (context, index) {
-                return SizedBox(
-                  height: thumbnailHeight,
-                  width: thumbnailHeight,
-                  child: Image(
-                    image: MemoryImage(_imageBytes[index]!),
-                    fit: fit,
-                  ),
-                );
+                return Stack(
+        children: [
+          SizedBox(
+            height: thumbnailHeight,
+            width: thumbnailHeight,
+            child: Image(
+              image: MemoryImage(_imageBytes[index]!),
+              fit: fit,
+            ),
+          ),
+          IconButton(onPressed:(){}, icon:Icon(Icons.flag,color: Colors.yellow,))
+          
+        ],
+      );
               });
         } else {
           return Container(
-            color: Colors.blue,
+            color: Colors.,
             height: thumbnailHeight,
             width: double.maxFinite,
           );
