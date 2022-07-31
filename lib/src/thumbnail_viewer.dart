@@ -78,7 +78,7 @@ class ThumbnailViewer extends StatelessWidget {
               });
         } else {
           return Container(
-            color: Colors.grey[900],
+            color: Colors.blue,
             height: thumbnailHeight,
             width: double.maxFinite,
           );
