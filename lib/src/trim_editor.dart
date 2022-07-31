@@ -321,8 +321,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         if (isPlaying) {
           widget.onChangePlaybackState!(true);
           setState(() {
-            _currentPosition =
-                videoPlayerController.value.position.inMilliseconds;
+            _currentPosition =7;
+                
 
             if (_currentPosition > _videoEndPos.toInt()) {
               videoPlayerController.pause();
