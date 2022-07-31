@@ -181,7 +181,7 @@ class TrimEditor extends StatefulWidget {
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
-    this.maxVideoLength = const Duration(seconds: 7),
+    this.maxVideoLength = const Duration(milliseconds: 0),
     this.circleSize = 5.0,
     this.borderWidth = 3,
     this.scrubberWidth = 1,
@@ -208,8 +208,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   double _videoStartPos = 0.0;
   double _videoEndPos = 0.0;
 
-  Offset _startPos = const Offset(5, 0);
-  Offset _endPos = const Offset(9, 0);
+  Offset _startPos = const Offset(0, 0);
+  Offset _endPos = const Offset(0, 0);
 
   double _startFraction = 0.0;
   double _endFraction = 1.0;
