@@ -255,7 +255,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         //The video has been initialized, now we can load stuff
 
         _initializeVideoController();
-        videoPlayerController.seekTo(const Duration(milliseconds: 25));
+        videoPlayerController.seekTo(const Duration(milliseconds: 0));
         setState(() {
           Duration totalDuration = videoPlayerController.value.duration;
 
@@ -311,6 +311,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
+    _startPos = const Offset(0.404/_thumbnailViewerW, 0);
+    
   }
 
   Future<void> _initializeVideoController() async {
