@@ -324,7 +324,6 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         final bool isPlaying = videoPlayerController.value.isPlaying;
 
         if (isPlaying) {
-          print("xxxx");
           widget.onChangePlaybackState!(true);
           setState(() {
             _currentPosition = videoPlayerController.value.position.inMilliseconds;
@@ -501,9 +500,10 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text(
-                          Duration(milliseconds: _videoStartPos.toInt())
-                              .toString()
-                              .split('.')[0],
+                          Duration(milliseconds:10).toString()
+//                           Duration(milliseconds: _videoStartPos.toInt())
+//                               .toString()
+//                               .split('.')[0],
                           style: widget.durationTextStyle,
                         ),
                         videoPlayerController.value.isPlaying
