@@ -500,7 +500,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text(
-                          Duration(milliseconds:10).toString()
+                          Duration(milliseconds:10).toString(),
 //                           Duration(milliseconds: _videoStartPos.toInt())
 //                               .toString()
 //                               .split('.')[0],
