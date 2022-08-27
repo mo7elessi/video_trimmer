@@ -205,7 +205,7 @@ class TrimEditor extends StatefulWidget {
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   File? get _videoFile => widget.trimmer.currentVideoFile;
 
-  double _videoStartPos = 0.0;
+  double _videoStartPos = 5000.0;
   double _videoEndPos = 0.0;
 
   Offset _startPos = const Offset(0, 0);
@@ -500,10 +500,9 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text(
-                          Duration(milliseconds:10).toString(),
-//                           Duration(milliseconds: _videoStartPos.toInt())
-//                               .toString()
-//                               .split('.')[0],
+                          Duration(milliseconds: _videoStartPos.toInt())
+                              .toString()
+                              .split('.')[0],
                           style: widget.durationTextStyle,
                         ),
                         videoPlayerController.value.isPlaying
