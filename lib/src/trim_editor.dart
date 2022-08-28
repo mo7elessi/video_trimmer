@@ -311,7 +311,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-    _startPos =  Offset(0.111*_thumbnailViewerW,0);
+    _startPos =  Offset(0.238*_thumbnailViewerW,0);
 //     _endPos =  Offset(0.333*_thumbnailViewerW,_thumbnailViewerH);
 //     _videoStartPos = 20.0;//45*( _startPos.dx/ _thumbnailViewerW);
 //     _videoEndPos = 40.0;
