@@ -206,7 +206,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   File? get _videoFile => widget.trimmer.currentVideoFile;
 
   double _videoStartPos = 5000.0;
-  double _videoEndPos = 0.0;
+  double _videoEndPos = 15000.0;
 
   Offset _startPos = const Offset(0, 0);
   Offset _endPos = const Offset(0, 0);
@@ -311,7 +311,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-    _startPos =  Offset(0.111*_thumbnailViewerW,0);
+    //_startPos =  Offset(0.111*_thumbnailViewerW,0);
 //     _endPos =  Offset(0.333*_thumbnailViewerW,_thumbnailViewerH);
 //     _videoStartPos = 20.0;//45*( _startPos.dx/ _thumbnailViewerW);
 //     _videoEndPos = 40.0;
