@@ -252,7 +252,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    print(videoFlagList);
+    print(videoFlagList[0]);
     super.initState();
 
     widget.trimmer.eventStream.listen((event) {
