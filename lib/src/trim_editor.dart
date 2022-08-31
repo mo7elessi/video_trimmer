@@ -488,7 +488,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-      print(videoFlagList![0]);
+      print(videoFlagList![0].flagPoint);
     return GestureDetector(
       onHorizontalDragStart: _onDragStart,
       onHorizontalDragUpdate: _onDragUpdate,
