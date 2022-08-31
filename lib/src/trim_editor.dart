@@ -197,7 +197,7 @@ class TrimEditor extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TrimEditorState createState() => _TrimEditorState();
+  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList);
 }
 
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
