@@ -9,16 +9,14 @@ import 'package:video_trimmer/src/trimmer.dart';
 class TrimEditor extends StatefulWidget {
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
+  ///The list of tagged time intervals that will be shown on the video timeline, this will help the user to reach some time intervals without the need of dragging the scrubber
+  final List<VideoFlag> videoFlagList;
 
   /// For defining the total trimmer area width
   final double viewerWidth;
 
   /// For defining the total trimmer area height
   final double viewerHeight;
-  /// For defining initial start for the trimmer slider
-//   final double sliderStart;
-//   /// For defining initial end for the trimmer slider
-//   final double sliderEnd;
   /// For defining the image fit type of each thumbnail image.
   ///
   /// By default it is set to `BoxFit.fitHeight`.
@@ -176,8 +174,6 @@ class TrimEditor extends StatefulWidget {
   const TrimEditor({
     Key? key,
     required this.trimmer,
-//     this.sliderStart=5;
-//     this.sliderEnd=10;
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
