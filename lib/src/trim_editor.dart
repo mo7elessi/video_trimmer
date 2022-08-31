@@ -5,12 +5,13 @@ import 'package:video_player/video_player.dart';
 import 'package:video_trimmer/src/thumbnail_viewer.dart';
 import 'package:video_trimmer/src/trim_editor_painter.dart';
 import 'package:video_trimmer/src/trimmer.dart';
+import 'package:video_trimmer/src/videoFlag.dart';
 
 class TrimEditor extends StatefulWidget {
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
   ///The list of tagged time intervals that will be shown on the video timeline, this will help the user to reach some time intervals without the need of dragging the scrubber
-  final List<VideoFlag> videoFlagList;
+   List<VideoFlag>? videoFlagList;
 
   /// For defining the total trimmer area width
   final double viewerWidth;
@@ -174,6 +175,7 @@ class TrimEditor extends StatefulWidget {
   const TrimEditor({
     Key? key,
     required this.trimmer,
+    this.videoFlagList,
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
@@ -199,10 +201,11 @@ class TrimEditor extends StatefulWidget {
 }
 
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
+  
   File? get _videoFile => widget.trimmer.currentVideoFile;
 
-  double _videoStartPos = 5000.0;
-  double _videoEndPos = 15000.0;
+  double _videoStartPos = 0.0;
+  double _videoEndPos = 0.0;
 
   Offset _startPos = const Offset(0, 0);
   Offset _endPos = const Offset(0, 0);
@@ -219,6 +222,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   int _numberOfThumbnails = 0;
 
   late double _circleSize;
+  
+  List<VideoFlag>? videoFlagList;
 
   double? fraction;
   double? maxLengthPixels;
@@ -241,6 +246,9 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   /// Whether the dragging is allowed. Dragging is ignore if the user's gesture is outside
   /// of the frame, to make the UI more realistic.
   bool _allowDrag = true;
+  
+  /// initialize the list of the flags
+  _TrimEditorState({this.videoFlagList});
 
   @override
   void initState() {
