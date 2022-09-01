@@ -274,7 +274,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
           } else {
             maxLengthPixels = _thumbnailViewerW;
           }
-           if(videoFlagList==null){
+           if(videoFlagList!=null){
           _videoEndPos = fraction != null
               ? _videoDuration.toDouble() * fraction!
               : _videoDuration.toDouble();
