@@ -207,7 +207,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   double _videoStartPos = 0.0;
   double _videoEndPos = 0.0;
 
-  Offset _startPos = const Offset(900, 0);
+  Offset _startPos = const Offset(0, 0);
   Offset _endPos = const Offset(0, 0);
 
   double _startFraction = 0.0;
