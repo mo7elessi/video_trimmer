@@ -343,6 +343,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     if (endPoint > duration) {
       endPoint = duration;
     }
+       print('ss');
+       print(startPoint);
 
     return VideoFlag(
         flagPoint: videoFlag.flagPoint,
