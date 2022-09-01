@@ -274,7 +274,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
           } else {
             maxLengthPixels = _thumbnailViewerW;
           }
-
+           if(videoFlagList==null){
           _videoEndPos = fraction != null
               ? _videoDuration.toDouble() * fraction!
               : _videoDuration.toDouble();
@@ -285,6 +285,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
             maxLengthPixels != null ? maxLengthPixels! : _thumbnailViewerW,
             _thumbnailViewerH,
           );
+           }
 
           // Defining the tween points
           _linearTween = Tween(begin: _startPos.dx, end: _endPos.dx);
@@ -315,12 +316,39 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-    //_startPos =  Offset(0.238*_thumbnailViewerW,0);
-     //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
+     if(videoFlagList!=null){
+      VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_videoDuration);
+       
+       _startPos =  Offset((flag.BeforeFlag/(_videoDuration/1000))*_thumbnailViewerW,0);
+       //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
+      
+    }
+    
+     
 //     _videoStartPos = 20.0;//45*( _startPos.dx/ _thumbnailViewerW);
 //     _videoEndPos = 40.0;
     
   }
+  
+     VideoFlag _validateFlagPoint(VideoFlag videoFlag, int videoDuration) {
+    int startPoint =
+        videoFlag.flagPoint!.toInt() - videoFlag.BeforeFlag!.toInt();
+    int endPoint = videoFlag.flagPoint!.toInt() + videoFlag.afterFlag!.toInt();
+    int duration =
+        videoDuration ~/ 1000; // convert to seconds instead of milliseconds
+    if (startPoint < 0) {
+      startPoint = 0;
+    }
+    if (endPoint > duration) {
+      endPoint = duration;
+    }
+
+    return VideoFlag(
+        flagPoint: videoFlag.flagPoint,
+        afterFlag: endPoint,
+        BeforeFlag: startPoint);
+  }
+  
 
   Future<void> _initializeVideoController() async {
     if (_videoFile != null) {
