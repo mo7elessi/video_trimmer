@@ -317,6 +317,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
+       print(videoFlagList!.elementAt(0));
       VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_videoDuration);
        
        _startPos =  Offset((flag.BeforeFlag!/(_videoDuration/1000))*_thumbnailViewerW,0);
@@ -362,7 +363,6 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
                 
 
             if (_currentPosition > _videoEndPos.toInt()) {
-              print("lol");
               videoPlayerController.pause();
               widget.onChangePlaybackState!(false);
               _animationController!.stop();
