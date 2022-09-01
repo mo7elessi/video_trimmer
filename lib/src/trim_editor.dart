@@ -29,7 +29,7 @@ class TrimEditor extends StatefulWidget {
   /// For specifying a size to the holder at the
   /// two ends of the video trimmer area, while it is `idle`.
   ///
-  /// By default it is set to `5.0`.
+  /// By default it is set to `.0`.
   final double circleSize;
 
   /// For specifying the width of the border around
@@ -319,8 +319,10 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
      if(videoFlagList!=null){
        print(videoFlagList!.elementAt(0).BeforeFlag);
       VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_videoDuration);
+       print("xx");
        print(flag.BeforeFlag!);
        print(_videoDuration/1000);
+        print("xx");
        
       // _startPos =  Offset((flag.BeforeFlag!/(_videoDuration/1000))*_thumbnailViewerW,0);
        
@@ -347,8 +349,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     if (endPoint > duration) {
       endPoint = duration;
     }
-       print('ss');
-       print(startPoint);
+       
+      
 
     return VideoFlag(
         flagPoint: videoFlag.flagPoint,
