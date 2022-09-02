@@ -319,7 +319,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
      if(videoFlagList!=null){
   
      
-      VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),VideoDuration);
+     // VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),VideoDuration);
        //_startPos =  Offset((flag.BeforeFlag!/VideoDuration)*_thumbnailViewerW,0);
      
        _startPos =  Offset(20/102*_thumbnailViewerW,0);
