@@ -256,6 +256,11 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    print("sfdfsdf");
+    print("sfdfsdf");
+    print("sfdfsdf");
+    print("sfdfsdf");
+    print(videoDuration);
     super.initState();
     widget.trimmer.eventStream.listen((event) {
       if (event == TrimmerEvent.initialized) {
@@ -320,6 +325,11 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
+       print("qassam");
+       print("qassam");
+       print("qassam");
+       print("qassam");
+       print(videoDuration);
      VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),videoDuration);
        _startPos =  Offset((flag.BeforeFlag!/videoDuration!)*_thumbnailViewerW,0);
    
