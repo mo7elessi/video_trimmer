@@ -330,7 +330,9 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
        print("qassam");
        print("qassam");
        print(videoDuration);
+      
      VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),videoDuration);
+        print(flag.flagPoint):
        print(flag.BeforeFlag!);
        _startPos =  Offset((flag.BeforeFlag!/videoDuration!)*_thumbnailViewerW,0);
    
