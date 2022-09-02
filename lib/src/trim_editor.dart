@@ -339,7 +339,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     
   }
   }
-     VideoFlag _validateFlagPoint(VideoFlag videoFlag, int videoDuration) {
+     VideoFlag _validateFlagPoint(VideoFlag videoFlag, int? videoDuration) {
     int startPoint =
         videoFlag.flagPoint!.toInt() - videoFlag.BeforeFlag!.toInt();
     int endPoint = videoFlag.flagPoint!.toInt() + videoFlag.afterFlag!.toInt();
