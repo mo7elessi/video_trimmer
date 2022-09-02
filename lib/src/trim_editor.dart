@@ -200,7 +200,7 @@ class TrimEditor extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList,duration: duration);
+  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList,videoDuration: duration);
 }
 
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
@@ -602,3 +602,4 @@ enum EditorDragType {
   /// The user is dragging the right part of the frame.
   right
 }
+
