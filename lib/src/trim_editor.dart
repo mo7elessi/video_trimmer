@@ -286,6 +286,26 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
             _thumbnailViewerH,
           );
            }
+             _circleSize = widget.circleSize;
+
+    _thumbnailViewerH = widget.viewerHeight;
+
+    _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
+
+    _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
+     if(videoFlagList!=null){
+     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_durationx);
+       _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
+   
+  
+       
+  
+   
+     
+      // _startPos =  Offset(20/102*_thumbnailViewerW,0);
+       //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
+      
+    }
 
           // Defining the tween points
           _linearTween = Tween(begin: _startPos.dx, end: _endPos.dx);
@@ -309,31 +329,26 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
       }
     });
 
-    _circleSize = widget.circleSize;
+//     _circleSize = widget.circleSize;
 
-    _thumbnailViewerH = widget.viewerHeight;
+//     _thumbnailViewerH = widget.viewerHeight;
 
-    _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
+//     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
-    _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-     if(videoFlagList!=null){
-       
-        Future.delayed(Duration(milliseconds: 100), () {  
-          print("fsdfjksdlfjksjkldjlk");
-          print(_durationx);
-           print("fsdfjksdlfjksjkldjlk");
-     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_durationx);
-       _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
+//     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
+//      if(videoFlagList!=null){
+//      VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_durationx);
+//        _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
    
-    });
+  
        
   
    
      
-      // _startPos =  Offset(20/102*_thumbnailViewerW,0);
-       //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
+//       // _startPos =  Offset(20/102*_thumbnailViewerW,0);
+//        //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
       
-    }
+//     }
     
      
 //     _videoStartPos = 20.0;//45*( _startPos.dx/ _thumbnailViewerW);
