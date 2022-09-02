@@ -591,6 +591,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     );
   }
 }
+}
 
 enum EditorDragType {
   /// The user is dragging the left part of the frame.
