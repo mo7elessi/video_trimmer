@@ -312,12 +312,12 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         });
       }
     });
-    print("omar mortaja")
-      print("omar mortaja")
+    print("omar mortaja");
+      print("omar mortaja");
       print(_durationx);
-    print("omar mortaja")
-      print("omar mortaja")
-      print("omar mortaja")
+    print("omar mortaja");
+      print("omar mortaja");
+      print("omar mortaja");
 
     _circleSize = widget.circleSize;
 
