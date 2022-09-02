@@ -346,7 +346,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         videoFlag.flagPoint!.toInt() - videoFlag.BeforeFlag!.toInt();
     int endPoint = videoFlag.flagPoint!.toInt() + videoFlag.afterFlag!.toInt();
     int duration =
-        videoDuration ~/ 1000; // convert to seconds instead of milliseconds
+        videoDuration; // convert to seconds instead of milliseconds
     if (startPoint < 0) {
       startPoint = 0;
     }
