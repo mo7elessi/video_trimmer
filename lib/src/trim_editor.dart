@@ -338,7 +338,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 //     _videoEndPos = 40.0;
     
   }
-  
+  }
      VideoFlag _validateFlagPoint(VideoFlag videoFlag, int videoDuration) {
     int startPoint =
         videoFlag.flagPoint!.toInt() - videoFlag.BeforeFlag!.toInt();
@@ -591,7 +591,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     );
   }
 }
-}
+
 
 enum EditorDragType {
   /// The user is dragging the left part of the frame.
