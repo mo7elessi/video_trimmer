@@ -203,7 +203,7 @@ class TrimEditor extends StatefulWidget {
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   
   File? get _videoFile => widget.trimmer.currentVideoFile;
-  int durationx=widget.trimmer.videoPlayerController.value.duration.inSeconds;
+  int get _durationx =>widget.trimmer.videoPlayerController.value.duration.inSeconds;
 
   double _videoStartPos = 0.0;
   double _videoEndPos = 0.0;
@@ -253,7 +253,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    print(durationx);
+    print(durationx());
     super.initState();
 
     widget.trimmer.eventStream.listen((event) {
