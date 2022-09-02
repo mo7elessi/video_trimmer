@@ -255,13 +255,6 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     widget.trimmer.eventStream.listen((event) {
-       print("khaled morta");
-        Future.delayed(Duration(milliseconds: 100), () {
-      // Do something
-        print(_durationx);
-       print("khaled morta");
-       print("khaled morta");
-    });
       if (event == TrimmerEvent.initialized) {
         //The video has been initialized, now we can load stuff
 
@@ -315,12 +308,6 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         });
       }
     });
-    print("omar mortaja");
-      print("omar mortaja");
-      print(_durationx);
-    print("omar mortaja");
-      print("omar mortaja");
-      print("omar mortaja");
 
     _circleSize = widget.circleSize;
 
@@ -330,12 +317,17 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
+       
+        Future.delayed(Duration(milliseconds: 100), () {  
+     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),VideoDuration);
+       _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
+   
+    });
+       
   
+   
      
-     // VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),VideoDuration);
-       //_startPos =  Offset((flag.BeforeFlag!/VideoDuration)*_thumbnailViewerW,0);
-     
-       _startPos =  Offset(20/102*_thumbnailViewerW,0);
+      // _startPos =  Offset(20/102*_thumbnailViewerW,0);
        //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
       
     }
