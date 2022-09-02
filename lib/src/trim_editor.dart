@@ -15,6 +15,8 @@ class TrimEditor extends StatefulWidget {
 
   /// For defining the total trimmer area width
   final double viewerWidth;
+  
+  int? duration;
 
   /// For defining the total trimmer area height
   final double viewerHeight;
@@ -194,16 +196,17 @@ class TrimEditor extends StatefulWidget {
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
+    this.duration
   }) : super(key: key);
 
   @override
-  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList);
+  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList,duration: duration);
 }
 
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   
   File? get _videoFile => widget.trimmer.currentVideoFile;
-  int get _durationx =>widget.trimmer.videoPlayerController!.value.duration.inSeconds;
+  int? videoDuration;
 
   double _videoStartPos = 0.0;
   double _videoEndPos = 0.0;
@@ -249,7 +252,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   bool _allowDrag = true;
   
   /// initialize the list of the flags
-  _TrimEditorState({this.videoFlagList});
+  _TrimEditorState({this.videoFlagList,this.videoDuration});
 
   @override
   void initState() {
@@ -286,27 +289,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
             _thumbnailViewerH,
           );
            }
-             _circleSize = widget.circleSize;
-
-    _thumbnailViewerH = widget.viewerHeight;
-
-    _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
-
-    _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-     if(videoFlagList!=null){
-     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_durationx);
-       _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
-   
-  
-       
-  
-   
-     
-      // _startPos =  Offset(20/102*_thumbnailViewerW,0);
-       //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
-      
-    }
-
+             
           // Defining the tween points
           _linearTween = Tween(begin: _startPos.dx, end: _endPos.dx);
           _animationController = AnimationController(
@@ -329,16 +312,16 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
       }
     });
 
-//     _circleSize = widget.circleSize;
+    _circleSize = widget.circleSize;
 
-//     _thumbnailViewerH = widget.viewerHeight;
+    _thumbnailViewerH = widget.viewerHeight;
 
-//     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
+    _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
-//     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-//      if(videoFlagList!=null){
-//      VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_durationx);
-//        _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
+    _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
+     if(videoFlagList!=null){
+     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),videoDuration);
+       _startPos =  Offset((flag.BeforeFlag!/videoDuration)*_thumbnailViewerW,0);
    
   
        
