@@ -253,11 +253,13 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    print("khaled morta");
-    print(_durationx);
     super.initState();
 
     widget.trimmer.eventStream.listen((event) {
+       print("khaled morta");
+       print(_durationx);
+       print("khaled morta");
+       print("khaled morta");
       if (event == TrimmerEvent.initialized) {
         //The video has been initialized, now we can load stuff
 
