@@ -317,7 +317,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
-       int VideoDuration= videoPlayerController.value.duration.inSeconds;
+       int VideoDuration= widget.trimmer.videoPlayerController!.value.duration.inSeconds;
        print("zzzz");
        print(VideoDuration);
        print("zzzz");
@@ -396,8 +396,6 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
       videoPlayerController.setVolume(1.0);
       _videoDuration = videoPlayerController.value.duration.inMilliseconds;
-      print("ssada");
-      print(_videoDuration);
 
       final ThumbnailViewer _thumbnailWidget = ThumbnailViewer(
         videoFile: _videoFile!,
