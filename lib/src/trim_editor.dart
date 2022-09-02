@@ -253,6 +253,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    print("khaled morta");
     print(_durationx);
     super.initState();
 
