@@ -319,7 +319,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
      if(videoFlagList!=null){
        
         Future.delayed(Duration(milliseconds: 100), () {  
-     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),VideoDuration);
+     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),_durationx);
        _startPos =  Offset((flag.BeforeFlag!/_durationx)*_thumbnailViewerW,0);
    
     });
