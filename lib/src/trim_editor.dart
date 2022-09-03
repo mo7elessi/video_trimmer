@@ -282,7 +282,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
           } else {
             maxLengthPixels = _thumbnailViewerW;
           }
-           if(videoFlagList!=null){
+           if(videoFlagList==null){
           _videoEndPos = fraction != null
               ? _videoDuration.toDouble() * fraction!
               : _videoDuration.toDouble();
@@ -325,16 +325,9 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
-       print("qassam");
-       print("qassam");
-       print("qassam");
-       print("qassam");
-       print(videoDuration);
-      
-     VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),videoDuration);
-        print(flag.flagPoint);
-       print(flag.BeforeFlag!);
+        VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),videoDuration);
        _startPos =  Offset((flag.BeforeFlag!/videoDuration!)*_thumbnailViewerW,0);
+       _endPos =  Offset(flag.afterFlag!/videoDuration!*_thumbnailViewerW,_thumbnailViewerH);
    
   
        
@@ -342,7 +335,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
    
      
 //       // _startPos =  Offset(20/102*_thumbnailViewerW,0);
-//        //_endPos =  Offset(0.714*_thumbnailViewerW,_thumbnailViewerH);
+
       
 //     }
     
