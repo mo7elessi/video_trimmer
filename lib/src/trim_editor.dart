@@ -301,7 +301,10 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
           _scrubberAnimation = _linearTween.animate(_animationController!)
             ..addListener(() {
-              setState(() {});
+              if(mounted){
+                 setState(() {});
+              }
+             
             })
             ..addStatusListener((status) {
               if (status == AnimationStatus.completed) {
