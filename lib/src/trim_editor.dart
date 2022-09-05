@@ -330,7 +330,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
       _videoEndPos = flag.afterFlag!*1000;
        print(_videoStartPos.toInt());
         videoPlayerController
-            .seekTo(Duration(seconds: _videoStartPos.toInt()));
+            .seekTo(Duration(milliseconds: _videoStartPos.toInt()));
        
    
  
