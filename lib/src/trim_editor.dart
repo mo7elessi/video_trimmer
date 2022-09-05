@@ -218,7 +218,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   double _endFraction = 1.0;
 
   int _videoDuration = 0;
-  int _currentPosition = 0;
+  int _currentPosition = 10000;
 
   double _thumbnailViewerW = 0.0;
   double _thumbnailViewerH = 0.0;
