@@ -576,12 +576,26 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
               borderPaintColor: widget.borderPaintColor,
               scrubberPaintColor: widget.scrubberPaintColor,
             ),
-            child: Container(
-              color: Colors.grey[900],
-              height: _thumbnailViewerH,
-              width: _thumbnailViewerW,
-              child: thumbnailWidget ?? Container(),
-            ),
+            child:Stack(
+      children: [
+        Container(
+          color: Colors.grey[900],
+          height: _thumbnailViewerH,
+          width: _thumbnailViewerW,
+          child: thumbnailWidget ?? Container(),
+        ),
+        3 == 3
+            ? Positioned.directional(
+              textDirection: TextDirection.ltr,
+              start: 320,
+              child: Icon(
+                  Icons.flag,
+                  color: Colors.cyan,
+                ),
+            )
+            : Container()
+      ],
+    ),
           ),
         ],
       ),
