@@ -591,7 +591,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         videoFlagList!=null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: (flagPoint.toInt()/videoDuration)*_thumbnailViewerW.toInt(),
+              start: ((flagPoint/videoDuration)*_thumbnailViewerW).toInt(),
               child: Icon(
                   Icons.flag,
                   color: Colors.cyan,
