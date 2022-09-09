@@ -10,8 +10,12 @@ import 'package:video_trimmer/src/videoFlag.dart';
 class TrimEditor extends StatefulWidget {
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
+  
   ///The list of tagged time intervals that will be shown on the video timeline, this will help the user to reach some time intervals without the need of dragging the scrubber
    List<VideoFlag>? videoFlagList;
+  
+  //the key of the tag that has to be shown in the trimmer timeline.
+  int? tagKey;
 
   /// For defining the total trimmer area width
   final double viewerWidth;
@@ -196,18 +200,21 @@ class TrimEditor extends StatefulWidget {
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
-    this.duration
+    this.duration,
+    this.tagKey
   }) : super(key: key);
 
   @override
-  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList,videoDuration: duration);
+  _TrimEditorState createState() => _TrimEditorState(videoFlagList: videoFlagList,videoDuration: duration,tagKey:tagKey);
 }
 
 class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   
   File? get _videoFile => widget.trimmer.currentVideoFile;
   int? videoDuration;
-
+  
+  int? tagKey;
+  
   double _videoStartPos = 0.0;
   double _videoEndPos = 0.0;
 
@@ -252,7 +259,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   bool _allowDrag = true;
   
   /// initialize the list of the flags
-  _TrimEditorState({this.videoFlagList,this.videoDuration});
+  _TrimEditorState({this.videoFlagList,this.videoDuration,this.tagKey});
 
   @override
   void initState() {
@@ -323,7 +330,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
-        VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(0),videoDuration);
+        VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(tagKey),videoDuration);
       _startPos =  Offset((flag.BeforeFlag!/videoDuration!)*_thumbnailViewerW,0);
        _endPos =  Offset(flag.afterFlag!/videoDuration!*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = flag.BeforeFlag!*1000;
