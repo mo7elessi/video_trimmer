@@ -231,6 +231,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   double _thumbnailViewerH = 0.0;
 
   int _numberOfThumbnails = 0;
+  
+  int flagPoint=0;
 
   late double _circleSize;
   
@@ -331,19 +333,14 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
      if(videoFlagList!=null){
         VideoFlag flag= _validateFlagPoint(videoFlagList!.elementAt(tagKey!.toInt()),videoDuration);
-      _startPos =  Offset((flag.BeforeFlag!/videoDuration!)*_thumbnailViewerW,0);
+       _startPos =  Offset((flag.BeforeFlag!/videoDuration!)*_thumbnailViewerW,0);
        _endPos =  Offset(flag.afterFlag!/videoDuration!*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = flag.BeforeFlag!*1000;
-      _videoEndPos = flag.afterFlag!*1000;
-    
-       
-
-       
-
-    
+       _videoEndPos = flag.afterFlag!*1000;  
   }
   }
      VideoFlag _validateFlagPoint(VideoFlag videoFlag, int? videoDuration) {
+       flagPoint=videoFlag.flagPoint!.toInt();
     int startPoint =
         videoFlag.flagPoint!.toInt() - videoFlag.BeforeFlag!.toInt();
     int endPoint = videoFlag.flagPoint!.toInt() + videoFlag.afterFlag!.toInt();
@@ -594,7 +591,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
         3 == 3
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: 320,
+              start: (videoFlag.flagPoint!.toInt()/videoDuration)*_thumbnailViewerW,
               child: Icon(
                   Icons.flag,
                   color: Colors.cyan,
