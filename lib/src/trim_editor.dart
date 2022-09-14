@@ -5,12 +5,13 @@ import 'package:video_player/video_player.dart';
 import 'package:video_trimmer/src/thumbnail_viewer.dart';
 import 'package:video_trimmer/src/trim_editor_painter.dart';
 import 'package:video_trimmer/src/trimmer.dart';
+import 'package:nice_shot/data/model/flag_model.dart';
 
 class TrimEditor extends StatefulWidget {
   //My editing
-  final int startFlag;
-  final int endFlag;
-final int myDuration;
+  final List<FlagModel> flagModel;
+  final int flagIndex;
+  final int videoDuration;
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
@@ -196,9 +197,9 @@ final int myDuration;
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
-    this.startFlag = 0,
-    this.endFlag = 0,
-    this.myDuration =0,
+    this.flagModel = [],
+    this.flagIndex = 0;
+    this.videoDuration =0,
   }) : super(key: key);
 
   @override
@@ -313,12 +314,13 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-       _startPos =  Offset((widget.startFlag/widget.myDuration)*_thumbnailViewerW,0);
-       _endPos =  Offset(widget.endFlag/widget.myDuration!*_thumbnailViewerW,_thumbnailViewerH);
-       _videoStartPos = widget.startFlag*1000;
-       _videoEndPos = widget.endFlag*1000;  
+    FlagModel flag = widget.flagModel[widget.flagIndex];
+       _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration)*_thumbnailViewerW,0);
+       _endPos =  Offset(flag.endDuration!.inSeconds/widget.videoDuration*_thumbnailViewerW,_thumbnailViewerH);
+       _videoStartPos = flag.startDuration!.inSeconds*1000;
+       _videoEndPos = flag.endDuration!.inSeconds*1000;  
   }
-
+       
   Future<void> _initializeVideoController() async {
     if (_videoFile != null) {
       videoPlayerController.addListener(() {
