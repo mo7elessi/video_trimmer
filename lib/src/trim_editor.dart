@@ -274,7 +274,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
           } else {
             maxLengthPixels = _thumbnailViewerW;
           }
-
+if(widget.flagModel == null){
           _videoEndPos = fraction != null
               ? _videoDuration.toDouble() * fraction!
               : _videoDuration.toDouble();
@@ -285,6 +285,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
             maxLengthPixels != null ? maxLengthPixels! : _thumbnailViewerW,
             _thumbnailViewerH,
           );
+  
+}
 
           // Defining the tween points
           _linearTween = Tween(begin: _startPos.dx, end: _endPos.dx);
