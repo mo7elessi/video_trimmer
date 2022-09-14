@@ -9,8 +9,8 @@ import 'package:nice_shot/data/model/flag_model.dart';
 
 class TrimEditor extends StatefulWidget {
   //My editing
-  final List<FlagModel> flagModel;
-  final int flagIndex;
+  final FlagModel flagModel;
+ // final int flagIndex;
   final int videoDuration;
  
   /// The Trimmer instance controlling the data.
@@ -197,8 +197,8 @@ class TrimEditor extends StatefulWidget {
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
-    this.flagModel = [],
-    this.flagIndex = 0;
+    required this.flagModel,
+   // this.flagIndex = 0;
     this.videoDuration =0,
   }) : super(key: key);
 
@@ -314,7 +314,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
-    FlagModel flag = widget.flagModel[widget.flagIndex];
+    FlagModel flag = widget.flagModel;
        _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration)*_thumbnailViewerW,0);
        _endPos =  Offset(flag.endDuration!.inSeconds/widget.videoDuration*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = flag.startDuration!.inSeconds*1000;
