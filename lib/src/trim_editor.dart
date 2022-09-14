@@ -8,9 +8,9 @@ import 'package:video_trimmer/src/trimmer.dart';
 
 class TrimEditor extends StatefulWidget {
   //My editing
-  double startFlag = 0.0;
-  double endFlag = 0.0;
-  double videoDuration = 0.0;
+  int startFlag = 0;
+  int endFlag = 0;
+  int videoDuration = 0;
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
 
