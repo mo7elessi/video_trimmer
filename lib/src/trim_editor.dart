@@ -10,6 +10,7 @@ class TrimEditor extends StatefulWidget {
   //My editing
   double startFlag = 0.0;
   double endFlag = 0.0;
+  double videoDuration = 0.0;
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
 
@@ -194,6 +195,9 @@ class TrimEditor extends StatefulWidget {
     this.onChangeStart,
     this.onChangeEnd,
     this.onChangePlaybackState,
+    this.startFlag,
+    this.endFlag,
+    this.videoDuration,
   }) : super(key: key);
 
   @override
@@ -308,6 +312,10 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     _numberOfThumbnails = widget.viewerWidth ~/ _thumbnailViewerH;
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
+       _startPos =  Offset((startFlag/videoDuration)*_thumbnailViewerW,0);
+       _endPos =  Offset(endFlag/videoDuration*_thumbnailViewerW,_thumbnailViewerH);
+       _videoStartPos = startFlag*1000;
+       _videoEndPos = endFlag*1000;  
   }
 
   Future<void> _initializeVideoController() async {
