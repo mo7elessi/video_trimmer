@@ -10,6 +10,7 @@ class TrimEditor extends StatefulWidget {
   //My editing
   final int startFlag;
   final int endFlag;
+final int myDuration;
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
@@ -197,6 +198,7 @@ class TrimEditor extends StatefulWidget {
     this.onChangePlaybackState,
     this.startFlag = 0,
     this.endFlag = 0,
+    this.myDuration =0,
   }) : super(key: key);
 
   @override
@@ -215,7 +217,7 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
   double _startFraction = 0.0;
   double _endFraction = 1.0;
 
-  int _videoDuration = 0;
+  int _videoDuration = widget.myDuration;
   int _currentPosition = 0;
 
   double _thumbnailViewerW = 0.0;
