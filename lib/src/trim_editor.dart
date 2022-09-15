@@ -554,7 +554,7 @@ if(widget.flagModel == null){
               textDirection: TextDirection.ltr,
               start: ((int.parse(widget.flagModel.duration!.split(":").last)/widget.videoDuration)*_thumbnailViewerW),
               child: Icon(
-                  Icons.circle,
+                  Icons.flag,
                   color: Colors.red,
                 ),
             )
