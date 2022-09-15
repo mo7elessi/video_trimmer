@@ -541,12 +541,26 @@ if(widget.flagModel == null){
               borderPaintColor: widget.borderPaintColor,
               scrubberPaintColor: widget.scrubberPaintColor,
             ),
-            child: Container(
-              color: Colors.grey[900],
-              height: _thumbnailViewerH,
-              width: _thumbnailViewerW,
-              child: thumbnailWidget ?? Container(),
-            ),
+            child: Stack(
+      children: [
+        Container(
+          color: Colors.grey[900],
+          height: _thumbnailViewerH,
+          width: _thumbnailViewerW,
+          child: thumbnailWidget ?? Container(),
+        ),
+        widget.flagModel != null
+            ? Positioned.directional(
+              textDirection: TextDirection.ltr,
+              start: ((widget.flagModel.duration.inSeconds/widget.videoDuration)*_thumbnailViewerW),
+              child: Icon(
+                  Icons.flag,
+                  color: Colors.cyan,
+                ),
+            )
+            : Container()
+      ],
+    ),
           ),
         ],
       ),
