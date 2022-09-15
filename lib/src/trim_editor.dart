@@ -10,7 +10,7 @@ import 'package:video_trimmer/src/videoFlag.dart';
 class TrimEditor extends StatefulWidget {
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
-  
+  String name = "Mohammed Elessi";
   ///The list of tagged time intervals that will be shown on the video timeline, this will help the user to reach some time intervals without the need of dragging the scrubber
    List<VideoFlag>? videoFlagList;
   
