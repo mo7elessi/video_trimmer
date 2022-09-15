@@ -552,7 +552,7 @@ if(widget.flagModel == null){
         widget.flagModel != null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: ((int.parse(widget.flagModel.duration!.split(":").first)/widget.videoDuration)*_thumbnailViewerW),
+              start: ((int.parse(widget.flagModel.duration!.split(":").last)/widget.videoDuration)*_thumbnailViewerW),
               child: Icon(
                   Icons.flag,
                   color: Colors.cyan,
