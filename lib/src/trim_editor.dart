@@ -555,7 +555,7 @@ if(widget.flagModel == null){
               start: ((int.parse(widget.flagModel.duration!.split(":").last)/widget.videoDuration)*_thumbnailViewerW),
               child: Icon(
                   Icons.flag,
-                  color: Colors.cyan,
+                  color: Colors.red,
                 ),
             )
             : Container()
