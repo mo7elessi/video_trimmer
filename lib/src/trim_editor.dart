@@ -314,8 +314,8 @@ if(widget.flagModel == null){
 
     _thumbnailViewerW = _numberOfThumbnails * _thumbnailViewerH;
     FlagModel flag = widget.flagModel;
-       _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration)*_thumbnailViewerW,0);
-       _endPos =  Offset((flag.endDuration!.inSeconds/widget.videoDuration)*_thumbnailViewerW,_thumbnailViewerH);
+       _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+       _endPos =  Offset((flag.endDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = flag.startDuration!.inSeconds*1000;
        _videoEndPos = flag.endDuration!.inSeconds*1000;  
   }
@@ -549,7 +549,7 @@ if(widget.flagModel == null){
         widget.flagModel != null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration!.inSeconds)*_thumbnailViewerW),
+              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration.inSeconds)*_thumbnailViewerW),
               child: Icon(
                   Icons.flag,
                   color: Colors.red,
