@@ -549,7 +549,7 @@ if(widget.flagModel == null){
         widget.flagModel != null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration.inSeconds)*_thumbnailViewerW),
+              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration.inSeconds)*_thumbnailViewerW,
               child: Icon(
                   Icons.flag,
                   color: Colors.red,
