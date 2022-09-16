@@ -8,9 +8,7 @@ import 'package:video_trimmer/src/trimmer.dart';
 import 'package:nice_shot/data/model/flag_model.dart';
 
 class TrimEditor extends StatefulWidget {
-  //My editing
   final FlagModel flagModel;
- // final int flagIndex;
   final int videoDuration;
  
   /// The Trimmer instance controlling the data.
@@ -198,8 +196,7 @@ class TrimEditor extends StatefulWidget {
     this.onChangeEnd,
     this.onChangePlaybackState,
     required this.flagModel,
-   // this.flagIndex = 0;
-    this.videoDuration =0,
+    required this.videoDuration =0,
   }) : super(key: key);
 
   @override
@@ -552,7 +549,7 @@ if(widget.flagModel == null){
         widget.flagModel != null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: ((int.parse(widget.flagModel.duration!.split(":").last)/widget.videoDuration)*_thumbnailViewerW),
+              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration)*_thumbnailViewerW),
               child: Icon(
                   Icons.flag,
                   color: Colors.red,
