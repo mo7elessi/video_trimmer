@@ -196,7 +196,7 @@ class TrimEditor extends StatefulWidget {
     this.onChangeEnd,
     this.onChangePlaybackState,
     required this.flagModel,
-    required this.videoDuration =0,
+    required this.videoDuration,
   }) : super(key: key);
 
   @override
@@ -549,7 +549,7 @@ if(widget.flagModel == null){
         widget.flagModel != null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration)*_thumbnailViewerW),
+              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration!.inSeconds)*_thumbnailViewerW),
               child: Icon(
                   Icons.flag,
                   color: Colors.red,
