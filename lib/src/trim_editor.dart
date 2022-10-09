@@ -485,7 +485,7 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-    List flagPoint = flagModel.flagPoint!.split(":");
+    List flagPoint = widget.flagModel.flagPoint!.split(":");
     return GestureDetector(
       onHorizontalDragStart: _onDragStart,
       onHorizontalDragUpdate: _onDragUpdate,
