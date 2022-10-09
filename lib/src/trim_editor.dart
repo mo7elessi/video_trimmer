@@ -485,6 +485,7 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
+    List flagPoint = flagModel.flagPoint!.split(":");
     return GestureDetector(
       onHorizontalDragStart: _onDragStart,
       onHorizontalDragUpdate: _onDragUpdate,
@@ -549,7 +550,7 @@ if(widget.flagModel == null){
         widget.flagModel != null
             ? Positioned.directional(
               textDirection: TextDirection.ltr,
-              start: ((widget.flagModel.flagPoint!.inSeconds)/widget.videoDuration.inSeconds)*_thumbnailViewerW,
+              start: ((int.parse(flagPoint.last.toString().split(".").first))/widget.videoDuration.inSeconds)*_thumbnailViewerW,
               child: Icon(
                   Icons.flag,
                   color: Colors.red,
