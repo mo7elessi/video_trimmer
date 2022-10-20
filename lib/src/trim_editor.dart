@@ -496,6 +496,7 @@ if(widget.flagModel == null){
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startValue*1000;
        _videoEndPos = widget.endValue*1000; 
+      _animationController.animateTo(_videoStartPos);
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
