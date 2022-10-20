@@ -497,7 +497,8 @@ if(widget.flagModel == null){
        _videoStartPos = widget.startValue*1000;
        _videoEndPos = widget.endValue*1000; 
       //_animationController!.animateTo(_videoStartPos);
-      _animationController!.reset();
+      //_animationController!.reset();
+       _animationController!.forward(from: _videoStartPos);
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
