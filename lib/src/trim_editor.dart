@@ -10,6 +10,7 @@ import 'package:nice_shot/data/model/flag_model.dart';
 class TrimEditor extends StatefulWidget {
   final FlagModel flagModel;
   final Duration videoDuration;
+  int rebuildScrubber=0;
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
@@ -180,6 +181,7 @@ class TrimEditor extends StatefulWidget {
     this.viewerWidth = 50.0 * 8,
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
+    this.rebuildScrubber,
     this.maxVideoLength = const Duration(milliseconds: 0),
     this.circleSize = 5.0,
     this.borderWidth = 3,
@@ -249,7 +251,6 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    print("updated updated 11110199");
     super.initState();
 
     widget.trimmer.eventStream.listen((event) {
@@ -486,10 +487,13 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-      print("updated updated 11110199 builllld");
-        FlagModel flag = widget.flagModel;
-    print(flag.startDuration!.inSeconds);
-//        _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+     FlagModel flag = widget.flagModel;
+    if(widget.rebuildScrubber==1){
+       _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _endPos =  Offset((flag.endDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+       _videoStartPos = flag.startDuration!.inSeconds*1000;
+       _videoEndPos = flag.endDuration!.inSeconds*1000; 
+    }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
       seconds: int.parse(flagPoint.last.toString().split(".").first),
