@@ -486,6 +486,7 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
+     print("updated updated 11110199 builllld");
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
       seconds: int.parse(flagPoint.last.toString().split(".").first),
