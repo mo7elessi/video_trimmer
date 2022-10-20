@@ -487,6 +487,8 @@ if(widget.flagModel == null){
   @override
   Widget build(BuildContext context) {
      print("updated updated 11110199 builllld");
+        FlagModel flag = widget.flagModel;
+       _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
       seconds: int.parse(flagPoint.last.toString().split(".").first),
