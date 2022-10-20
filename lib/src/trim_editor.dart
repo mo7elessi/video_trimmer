@@ -494,8 +494,8 @@ if(widget.flagModel == null){
     if(widget.rebuildScrubber==1){
        _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
-      // _videoStartPos = widget.startValue*1000;
-      // _videoEndPos = widget.endValue*1000; 
+       _videoStartPos = widget.startValue*1000;
+       _videoEndPos = widget.endValue*1000; 
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
