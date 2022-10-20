@@ -10,7 +10,7 @@ import 'package:nice_shot/data/model/flag_model.dart';
 class TrimEditor extends StatefulWidget {
   final FlagModel flagModel;
   final Duration videoDuration;
-  int rebuildScrubber=0;
+  final rebuildScrubber;
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
