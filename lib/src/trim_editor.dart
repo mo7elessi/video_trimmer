@@ -11,6 +11,8 @@ class TrimEditor extends StatefulWidget {
   final FlagModel flagModel;
   final Duration videoDuration;
   final rebuildScrubber;
+  final startValue;
+  final endValue;
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
@@ -182,6 +184,8 @@ class TrimEditor extends StatefulWidget {
     this.viewerHeight = 50,
     this.fit = BoxFit.fitHeight,
     required this.rebuildScrubber,
+    required this.startValue,
+    required this.endValue,
     this.maxVideoLength = const Duration(milliseconds: 0),
     this.circleSize = 5.0,
     this.borderWidth = 3,
@@ -487,12 +491,11 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-     FlagModel flag = widget.flagModel;
     if(widget.rebuildScrubber==1){
-       _startPos =  Offset((flag.startDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-        _endPos =  Offset((flag.endDuration!.inSeconds/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
-       _videoStartPos = flag.startDuration!.inSeconds*1000;
-       _videoEndPos = flag.endDuration!.inSeconds*1000; 
+       _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+       _videoStartPos = widget.startValue*1000;
+       _videoEndPos = widget.endValue*1000; 
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
