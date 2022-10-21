@@ -13,6 +13,8 @@ class TrimEditor extends StatefulWidget {
   final rebuildScrubber;
   final startValue;
   final endValue;
+  final startMute;
+  final endMute;
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
@@ -186,6 +188,8 @@ class TrimEditor extends StatefulWidget {
     required this.rebuildScrubber,
     required this.startValue,
     required this.endValue,
+    required this.startMute,
+    required this.endMute,
     this.maxVideoLength = const Duration(milliseconds: 0),
     this.circleSize = 5.0,
     this.borderWidth = 3,
@@ -501,6 +505,11 @@ if(widget.flagModel == null){
      // _animationController!.animateTo(_videoStartPos);
       //_animationController!.reset();
     }else{
+         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+       _videoStartPos = widget.startMute*1000;
+       _videoEndPos = widget.endMute*1000; 
+                _animationController!.stop();
       
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
