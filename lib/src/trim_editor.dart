@@ -506,10 +506,12 @@ if(widget.flagModel == null){
        _videoStartPos = widget.startMute*1000;
        _videoEndPos = widget.endMute*1000; 
       if(widget.startMute<widget.startValue){
-        widget.startMute=widget.startValue;
+         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _videoStartPos = widget.startValue*1000;
       }
       if(widget.endMute>widget.endValue){
-        widget.endMute=widget.endValue;
+           _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+         _videoEndPos = widget.endValue*1000; 
       }
                
     }
