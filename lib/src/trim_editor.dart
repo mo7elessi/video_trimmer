@@ -500,17 +500,18 @@ if(widget.flagModel == null){
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startValue*1000;
        _videoEndPos = widget.endValue*1000; 
-               // _animationController!.stop();
-              //widget.onChangePlaybackState!(false);
-     // _animationController!.animateTo(_videoStartPos);
-      //_animationController!.reset();
     }else{
          _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startMute*1000;
        _videoEndPos = widget.endMute*1000; 
-                //_animationController!.stop();
-      
+      if(widget.startMute<widget.startValue){
+        widget.startMute=widget.startValue;
+      }
+      if(widget.endMute>widget.endValue){
+        widget.endMute=widget.endValue;
+      }
+               
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
