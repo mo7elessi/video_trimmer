@@ -596,7 +596,7 @@ if(widget.flagModel == null){
             )
             : Container(),
                 widget.shouldDraw?Positioned.directional(
-            textDirection: TextDirection.ltr, child: child,
+            textDirection: TextDirection.ltr,
           start: _startPos.dx,
           child:Container(
             width:_endPos.dx- _startPos.dx,
