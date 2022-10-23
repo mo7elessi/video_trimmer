@@ -15,9 +15,7 @@ class TrimEditor extends StatefulWidget {
   final endValue;
   final startMute;
   final endMute;
-  bool? shouldDraw;
-  
- 
+  List<dynamic>? mutedSections
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
 
@@ -209,7 +207,7 @@ class TrimEditor extends StatefulWidget {
     this.onChangePlaybackState,
     required this.flagModel,
     required this.videoDuration,
-    required this.shouldDraw
+    required this.mutedSections 
   }) : super(key: key);
 
   @override
@@ -595,16 +593,25 @@ if(widget.flagModel == null){
                 ),
             )
             : Container(),
-                widget.shouldDraw!?Positioned.directional(
+        for(var section in widget.mutedSections!) Positioned.directional(
             textDirection: TextDirection.ltr,
-          start: _startPos.dx,
+          start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
           child:Container(
-            width:_endPos.dx- _startPos.dx,
+            width:Offset((section.muteEnd/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx-Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
             height:_thumbnailViewerH ,
             color: Colors.black38.withOpacity(0.5),
           )
+        //
+//                 widget.shouldDraw!?Positioned.directional(
+//             textDirection: TextDirection.ltr,
+//           start: _startPos.dx,
+//           child:Container(
+//             width:_endPos.dx- _startPos.dx,
+//             height:_thumbnailViewerH ,
+//             color: Colors.black38.withOpacity(0.5),
+//           )
           
-        ):Container()
+//         ):Container()
       ],
     ),
           ),
