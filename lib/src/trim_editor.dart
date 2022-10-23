@@ -15,7 +15,7 @@ class TrimEditor extends StatefulWidget {
   final endValue;
   final startMute;
   final endMute;
-  List<dynamic>? mutedSections
+  List<dynamic>? mutedSections;
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
 
@@ -600,6 +600,7 @@ if(widget.flagModel == null){
             width:Offset((section.muteEnd/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx-Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
             height:_thumbnailViewerH ,
             color: Colors.black38.withOpacity(0.5),
+          )
           )
         //
 //                 widget.shouldDraw!?Positioned.directional(
