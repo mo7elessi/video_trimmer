@@ -15,6 +15,8 @@ class TrimEditor extends StatefulWidget {
   final endValue;
   final startMute;
   final endMute;
+  final shouldDraw;
+  
  
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
@@ -207,6 +209,7 @@ class TrimEditor extends StatefulWidget {
     this.onChangePlaybackState,
     required this.flagModel,
     required this.videoDuration,
+    required this.shouldDraw
   }) : super(key: key);
 
   @override
@@ -591,7 +594,17 @@ if(widget.flagModel == null){
                   color: Colors.red,
                 ),
             )
-            : Container()
+            : Container(),
+                widget.shouldDraw?Positioned.directional(
+            textDirection: TextDirection.ltr, child: child,
+          start: _startPos.dx,
+          child:Container(
+            width:_endPos.dx- _startPos.dx,
+            height:_thumbnailViewerH ,
+            color: Colors.black38.withOpacity(0.5),
+          )
+          
+        ):Container()
       ],
     ),
           ),
