@@ -593,27 +593,32 @@ if(widget.flagModel == null){
                 ),
             )
             : Container(),
-        for(var section in widget.mutedSections!) Positioned.directional(
-            textDirection: TextDirection.ltr,
-          start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
-          child:Container(
-            decoration: BoxDecoration(
-             color: Colors.black38.withOpacity(0.8),
-            border: Border(
-              right: BorderSide(
-                color: Colors.blue,
-                width: 1.0,
-              ),
-              left:BorderSide(
-                color: Colors.blue,
-                width: 1.0,
-              ),
-            )
-          ),
-            width:Offset((section.muteEnd/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx-Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
-            height:_thumbnailViewerH ,
-           
-          )
+        for(var section in widget.mutedSections!)
+        Stack(
+            children: [
+              Icon(
+                Icons.music_off_rounded,
+                color: Colors.yellow,
+              )
+              Positioned.directional(
+                  textDirection: TextDirection.ltr,
+                  start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
+                  child:Container(
+                    decoration: BoxDecoration(
+                        color: Colors.black38.withOpacity(0.8),
+                        border: Border(
+                          right: BorderSide(
+                            color: Colors.blue,
+                            width: 1.0,
+                          ),
+                          left:BorderSide(
+                            color: Colors.blue,
+                            width: 1.0,
+                          ),
+                        )
+                    )
+                  )),
+            ],
           )
         //
 //                 widget.shouldDraw!?Positioned.directional(
