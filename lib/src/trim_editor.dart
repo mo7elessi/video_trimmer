@@ -15,7 +15,7 @@ class TrimEditor extends StatefulWidget {
   final endValue;
   final startMute;
   final endMute;
-  final shouldDraw;
+  bool? shouldDraw;
   
  
   /// The Trimmer instance controlling the data.
@@ -595,7 +595,7 @@ if(widget.flagModel == null){
                 ),
             )
             : Container(),
-                widget.shouldDraw?Positioned.directional(
+                widget.shouldDraw!?Positioned.directional(
             textDirection: TextDirection.ltr,
           start: _startPos.dx,
           child:Container(
