@@ -594,12 +594,12 @@ if(widget.flagModel == null){
             )
             : Container(),
         for(var section in widget.mutedSections!)
-        Stack(
-            children: [
-              Icon(
-                Icons.music_off_rounded,
-                color: Colors.yellow,
-              ),
+        
+              InkWell(
+                onLongPress:(){
+                  print("karim ifrani");
+                },
+                child:
               Positioned.directional(
                   textDirection: TextDirection.ltr,
                   start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
@@ -618,8 +618,9 @@ if(widget.flagModel == null){
                         )
                     )
                   )),
-            ],
+       
           )
+        )
         //
 //                 widget.shouldDraw!?Positioned.directional(
 //             textDirection: TextDirection.ltr,
