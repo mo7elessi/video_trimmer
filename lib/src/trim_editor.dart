@@ -599,7 +599,7 @@ if(widget.flagModel == null){
           child:Container(
             width:Offset((section.muteEnd/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx-Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
             height:_thumbnailViewerH ,
-            color: Colors.black38.withOpacity(0.5),
+            color: Colors.black38.withOpacity(0.2),
           )
           )
         //
