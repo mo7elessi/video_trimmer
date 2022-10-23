@@ -595,11 +595,8 @@ if(widget.flagModel == null){
             : Container(),
         for(var section in widget.mutedSections!)
         
-              InkWell(
-                onLongPress:(){
-                  print("karim ifrani");
-                },
-                child:
+             
+           
               Positioned.directional(
                   textDirection: TextDirection.ltr,
                   start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
@@ -619,7 +616,7 @@ if(widget.flagModel == null){
                     )
                   )),
        
-          )
+         
        
    
 
