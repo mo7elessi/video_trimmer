@@ -594,13 +594,11 @@ if(widget.flagModel == null){
             )
             : Container(),
         for(var section in widget.mutedSections!)
-        
-             
-           
               Positioned.directional(
                   textDirection: TextDirection.ltr,
                   start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
                   child:Container(
+                    width: _endPos =  Offset((section.muteEnd/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH).dx-Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH).dx;
                     decoration: BoxDecoration(
                         color: Colors.black38.withOpacity(0.8),
                         border: Border(
