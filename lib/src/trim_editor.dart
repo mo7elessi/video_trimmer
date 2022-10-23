@@ -620,18 +620,9 @@ if(widget.flagModel == null){
                   )),
        
           )
-        )
-        //
-//                 widget.shouldDraw!?Positioned.directional(
-//             textDirection: TextDirection.ltr,
-//           start: _startPos.dx,
-//           child:Container(
-//             width:_endPos.dx- _startPos.dx,
-//             height:_thumbnailViewerH ,
-//             color: Colors.black38.withOpacity(0.5),
-//           )
-          
-//         ):Container()
+       
+   
+
       ],
     ),
           ),
