@@ -599,7 +599,7 @@ if(widget.flagModel == null){
               Icon(
                 Icons.music_off_rounded,
                 color: Colors.yellow,
-              )
+              ),
               Positioned.directional(
                   textDirection: TextDirection.ltr,
                   start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
