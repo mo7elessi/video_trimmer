@@ -216,7 +216,7 @@ class TrimEditor extends StatefulWidget {
   _TrimEditorState createState() => _TrimEditorState();
 }
 
-class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin with ChangeNotifier{
+class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin,ChangeNotifier{
   File? get _videoFile => widget.trimmer.currentVideoFile;
 
   double _videoStartPos = 0.0;
