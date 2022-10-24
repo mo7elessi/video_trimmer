@@ -6,6 +6,7 @@ import 'package:video_trimmer/src/thumbnail_viewer.dart';
 import 'package:video_trimmer/src/trim_editor_painter.dart';
 import 'package:video_trimmer/src/trimmer.dart';
 import 'package:nice_shot/data/model/flag_model.dart';
+import 'lib/presentation/features/editor/pages/trimmer_page.dart';
 
 class TrimEditor extends StatefulWidget {
   final FlagModel flagModel;
