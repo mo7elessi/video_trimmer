@@ -16,6 +16,7 @@ class TrimEditor extends StatefulWidget {
   final startMute;
   final endMute;
   List<dynamic>? mutedSections;
+  bool? deletingMode;
   /// The Trimmer instance controlling the data.
   final Trimmer trimmer;
 
@@ -207,7 +208,8 @@ class TrimEditor extends StatefulWidget {
     this.onChangePlaybackState,
     required this.flagModel,
     required this.videoDuration,
-    required this.mutedSections 
+    required this.mutedSections,
+    required this.deletingMode
   }) : super(key: key);
 
   @override
@@ -599,6 +601,7 @@ if(widget.flagModel == null){
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
           onLongPress:(){
+            widget.deletingMode=true;
             print(" success lol lolo");
           },
           child:Container(
