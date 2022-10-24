@@ -605,8 +605,10 @@ if(widget.flagModel == null){
               TrimmerPage.deletingMode.notifyListeners();
           },
           onLongPress:(){
+                TrimmerPage.deletingIndex.value=widget.mutedSections!.indexOf(section);
                 TrimmerPage.deletingMode.value=true;
                 TrimmerPage.deletingMode.notifyListeners();
+                TrimmerPage.deletingIndex.notifyListeners();
             print(" success lol lolo");
           },
           child:Container(
