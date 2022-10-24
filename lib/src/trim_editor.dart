@@ -600,6 +600,10 @@ if(widget.flagModel == null){
             textDirection: TextDirection.ltr,
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
+          onTap:(){
+              TrimmerPage.deletingMode.value=false;
+              TrimmerPage.deletingMode.notifyListeners();
+          },
           onLongPress:(){
                 TrimmerPage.deletingMode.value=true;
                 TrimmerPage.deletingMode.notifyListeners();
