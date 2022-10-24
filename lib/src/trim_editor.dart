@@ -597,7 +597,10 @@ if(widget.flagModel == null){
         Positioned.directional(
             textDirection: TextDirection.ltr,
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
-        
+        child:InkWell(
+          onLongPress:(){
+            print(" success lol lolo");
+          },
           child:Container(
             decoration: BoxDecoration(
              color: Colors.black38.withOpacity(0.8),
@@ -615,7 +618,9 @@ if(widget.flagModel == null){
             width:Offset((section.muteEnd/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx-Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
             height:_thumbnailViewerH ,
            
-         ) )
+         )
+          )
+        )
           
           
    
