@@ -216,7 +216,7 @@ class TrimEditor extends StatefulWidget {
   _TrimEditorState createState() => _TrimEditorState();
 }
 
-class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
+class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin with ChangeNotifier{
   File? get _videoFile => widget.trimmer.currentVideoFile;
 
   double _videoStartPos = 0.0;
@@ -601,7 +601,7 @@ if(widget.flagModel == null){
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
           onLongPress:(){
-              TrimmerPage.deletingMode=true;
+              TrimmerPage.deletingMode=ValueNotifier<bool>(true);
             print(" success lol lolo");
           },
           child:Container(
