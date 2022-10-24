@@ -601,8 +601,7 @@ if(widget.flagModel == null){
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
           onLongPress:(){
-              TrimmerPage.deletingMode=ValueNotifier<bool>(true);
-            TrimmerPage.deletingMode.notifyListeners();
+                TrimmerPage.deletingMode.value=true;
             print(" success lol lolo");
           },
           child:Container(
