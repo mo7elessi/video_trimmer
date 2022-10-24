@@ -602,6 +602,7 @@ if(widget.flagModel == null){
         child:InkWell(
           onLongPress:(){
               TrimmerPage.deletingMode=ValueNotifier<bool>(true);
+            TrimmerPage.deletingMode.notifyListeners();
             print(" success lol lolo");
           },
           child:Container(
