@@ -533,6 +533,7 @@ if(widget.flagModel == null){
 //     }
 //       TrimmerPage.doesIndexChanges=false;
 //   }
+    if(TrimmerPage.doesIndexChanges==true){
     if(widget.rebuildScrubber==0){
              _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
@@ -544,6 +545,8 @@ if(widget.flagModel == null){
        _videoStartPos = widget.startMute*1000;
        _videoEndPos = widget.endMute*1000; 
       
+    }
+      TrimmerPage.doesIndexChanges=false;
     }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
