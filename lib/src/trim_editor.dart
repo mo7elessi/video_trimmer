@@ -505,8 +505,9 @@ if(widget.flagModel == null){
        _videoStartPos = widget.startValue*1000;
        _videoEndPos = widget.endValue*1000; 
     }else{
-     print("first case");
-      if(widget.startMute<widget.startValue&&widget.endMute>widget.endValue){
+    
+      if(widget.startMute<widget.startValue&&(widget.endMute>widget.endValue|| widget.endMute<widget.startValue)){
+        print("first case");
          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startValue*1000;
@@ -520,7 +521,7 @@ if(widget.flagModel == null){
          _videoEndPos = widget.endMute*1000; 
         
       }
-      if(widget.endMute>widget.endValue){
+      if(widget.endMute>widget.endValue|| widget.endMute<widget.startValue){
         print("third case");
            _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
          _videoEndPos = widget.endValue*1000; 
