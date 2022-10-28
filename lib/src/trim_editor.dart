@@ -498,41 +498,53 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-    if(TrimmerPage.doesIndexChanges==true){
-    if(widget.rebuildScrubber==0){
-       _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-        _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
-       _videoStartPos = widget.startValue*1000;
-       _videoEndPos = widget.endValue*1000; 
-    }else{
+//     if(TrimmerPage.doesIndexChanges==true){
+//     if(widget.rebuildScrubber==0){
+//        _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+//         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+//        _videoStartPos = widget.startValue*1000;
+//        _videoEndPos = widget.endValue*1000; 
+//     }else{
     
-      if(widget.startMute<widget.startValue&&(widget.endMute>widget.endValue|| widget.endMute<widget.startValue)){
-        print("first case");
-         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+//       if(widget.startMute<widget.startValue&&(widget.endMute>widget.endValue|| widget.endMute<widget.startValue)){
+//         print("first case");
+//          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+//         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+//        _videoStartPos = widget.startValue*1000;
+//        _videoEndPos = widget.endValue*1000; 
+//     }else{
+//       if(widget.startMute<widget.startValue){
+//         print("second case");
+//          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+//         _videoStartPos = widget.startValue*1000;
+//         _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+//          _videoEndPos = widget.endMute*1000; 
+        
+//       }
+//       if(widget.endMute>widget.endValue|| widget.endMute<widget.startValue){
+//         print("third case");
+//            _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+//          _videoEndPos = widget.endValue*1000; 
+//          _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+//         _videoStartPos = widget.startMute*1000;
+//       }
+//       }
+               
+//     }
+//       TrimmerPage.doesIndexChanges=false;
+//   }
+    if(widget.rebuildScrubber==0){
+             _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startValue*1000;
        _videoEndPos = widget.endValue*1000; 
     }else{
-      if(widget.startMute<widget.startValue){
-        print("second case");
-         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-        _videoStartPos = widget.startValue*1000;
+                   _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
-         _videoEndPos = widget.endMute*1000; 
-        
-      }
-      if(widget.endMute>widget.endValue|| widget.endMute<widget.startValue){
-        print("third case");
-           _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
-         _videoEndPos = widget.endValue*1000; 
-         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-        _videoStartPos = widget.startMute*1000;
-      }
-      }
-               
+       _videoStartPos = widget.startMute*1000;
+       _videoEndPos = widget.endMute*1000; 
+      
     }
-      TrimmerPage.doesIndexChanges=false;
-  }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
       seconds: int.parse(flagPoint.last.toString().split(".").first),
