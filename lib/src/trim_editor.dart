@@ -601,14 +601,14 @@ if(widget.flagModel == null){
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
           onTap:(){
-              //TrimmerPage.deletingMode.value=false;
-              //TrimmerPage.deletingMode.notifyListeners();
+              TrimmerPage.deletingMode.value=false;
+              TrimmerPage.deletingMode.notifyListeners();
           },
           onLongPress:(){
-              //  TrimmerPage.deletingIndex.value=widget.mutedSections!.indexOf(section);
-                //TrimmerPage.deletingMode.value=true;
-               // TrimmerPage.deletingMode.notifyListeners();
-               // TrimmerPage.deletingIndex.notifyListeners();
+                TrimmerPage.deletingIndex.value=widget.mutedSections!.indexOf(section);
+                TrimmerPage.deletingMode.value=true;
+                TrimmerPage.deletingMode.notifyListeners();
+                TrimmerPage.deletingIndex.notifyListeners();
             print(" success lol lolo");
           },
           child:Container(
