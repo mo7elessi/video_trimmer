@@ -498,7 +498,7 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-    if(TrimmerPage.doesIndexChanged==true){
+    if(TrimmerPage.doesIndexChanges==true){
     if(widget.rebuildScrubber==0){
        _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
