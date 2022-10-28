@@ -498,7 +498,7 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-    if(rebuildScrubber==1){
+    if(widget.rebuildScrubber==1){
          if(widget.startMute<widget.startValue){
         print("second case");
          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
