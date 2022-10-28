@@ -506,7 +506,7 @@ if(widget.flagModel == null){
        _videoEndPos = widget.endValue*1000; 
     }else{
       print("hi there my name isk hlaed");
-      if(widget.startMute>widget.startValue&&widget.endMute<widget.endValue){
+      if(widget.startMute<widget.startValue&&widget.endMute>widget.endValue){
          _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startMute*1000;
