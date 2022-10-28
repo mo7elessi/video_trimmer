@@ -505,7 +505,7 @@ if(widget.flagModel == null){
        _videoStartPos = widget.startValue*1000;
        _videoEndPos = widget.endValue*1000; 
     }else{
-      print("hi there my name isk hlaed");
+     print("first case");
       if(widget.startMute<widget.startValue&&widget.endMute>widget.endValue){
          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
@@ -513,6 +513,7 @@ if(widget.flagModel == null){
        _videoEndPos = widget.endValue*1000; 
     }else{
       if(widget.startMute<widget.startValue){
+        print("second case");
          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _videoStartPos = widget.startValue*1000;
         _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
@@ -520,6 +521,7 @@ if(widget.flagModel == null){
         
       }
       if(widget.endMute>widget.endValue){
+        print("third case");
            _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
          _videoEndPos = widget.endValue*1000; 
          _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
