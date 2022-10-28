@@ -519,7 +519,7 @@ if(widget.flagModel == null){
       }
                
     }
-      TrimmerPage.doesIndexChanged=false;
+      TrimmerPage.doesIndexChanges=false;
   }
     List flagPoint = widget.flagModel.flagPoint!.split(":");
      Duration point = Duration(
