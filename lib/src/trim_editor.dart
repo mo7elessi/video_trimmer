@@ -506,17 +506,25 @@ if(widget.flagModel == null){
        _videoEndPos = widget.endValue*1000; 
     }else{
       print("hi there my name isk hlaed");
+      if(widget.startMute>widget.startValue&&widget.endMute<widget.endValue){
          _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
        _videoStartPos = widget.startMute*1000;
        _videoEndPos = widget.endMute*1000; 
+    }else{
       if(widget.startMute<widget.startValue){
          _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _videoStartPos = widget.startValue*1000;
+        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+         _videoEndPos = widget.endMute*1000; 
+        
       }
       if(widget.endMute>widget.endValue){
            _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
          _videoEndPos = widget.endValue*1000; 
+         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _videoStartPos = widget.startMute*1000;
+      }
       }
                
     }
