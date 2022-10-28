@@ -601,6 +601,7 @@ if(widget.flagModel == null){
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
           onTap:(){
+            print("ferferferf");
               TrimmerPage.deletingMode.value=false;
               TrimmerPage.deletingMode.notifyListeners();
           },
