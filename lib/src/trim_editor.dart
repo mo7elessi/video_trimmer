@@ -534,6 +534,10 @@ if(widget.flagModel == null){
 //     }
 //       TrimmerPage.doesIndexChanges=false;
 //   }
+    if(widget.startMute<widget.startValue){
+      _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+      _videoStartPos = widget.startValue*1000;
+    }
     if(TrimmerPage.doesIndexChanges==true){
     if(widget.rebuildScrubber==0){
         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
@@ -634,7 +638,6 @@ if(widget.flagModel == null){
           start: Offset((section.muteStart/widget.videoDuration.inSeconds)*_thumbnailViewerW,0).dx,
         child:InkWell(
           onTap:(){
-            print("ferferferf");
               TrimmerPage.deletingMode.value=false;
               TrimmerPage.deletingMode.notifyListeners();
           },
@@ -643,7 +646,6 @@ if(widget.flagModel == null){
                 TrimmerPage.deletingMode.value=true;
                 TrimmerPage.deletingMode.notifyListeners();
                 TrimmerPage.deletingIndex.notifyListeners();
-            print(" success lol lolo");
           },
           child:Container(
             decoration: BoxDecoration(
