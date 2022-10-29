@@ -499,6 +499,7 @@ if(widget.flagModel == null){
   @override
   Widget build(BuildContext context) {
   
+  
 //     if(TrimmerPage.doesIndexChanges==true){
 //     if(widget.rebuildScrubber==0){
 //        _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
@@ -537,9 +538,7 @@ if(widget.flagModel == null){
     if(widget.startMute<widget.startValue){
       _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
       _videoStartPos = widget.startValue*1000;
-       print("loooooool");
-      print(widget.startValue);
-      print("loooooool");
+     
 
     }
     if(TrimmerPage.doesIndexChanges==true){
