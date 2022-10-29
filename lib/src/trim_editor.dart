@@ -535,12 +535,12 @@ if(widget.flagModel == null){
 //     }
 //       TrimmerPage.doesIndexChanges=false;
 //   }
-    if(widget.startMute<widget.startValue){
-      _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-      _videoStartPos = widget.startValue*1000;
+//     if(widget.startMute<widget.startValue){
+//       _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+//       _videoStartPos = widget.startValue*1000;
      
 
-    }
+//     }
     if(TrimmerPage.doesIndexChanges==true){
     if(widget.rebuildScrubber==0){
         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
