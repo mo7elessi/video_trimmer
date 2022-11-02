@@ -502,11 +502,11 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-    if(widget.startMute>tempMuteStart){
+    if(widget.startMute>widget.tempMuteStart){
         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _videoStartPos = widget.startMute*1000;
     }
-    if(widget.endMute<tempMuteEnd){
+    if(widget.endMute<widget.tempMuteEnd){
        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
       _videoEndPos = widget.endMute*1000;
     }
