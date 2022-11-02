@@ -502,6 +502,7 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
+    if(widget.rebuildScrubber==1){
     if(widget.startMute>widget.tempMuteStart){
         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _videoStartPos = widget.startMute*1000;
@@ -510,6 +511,7 @@ if(widget.flagModel == null){
        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
       _videoEndPos = widget.endMute*1000;
     }
+  }
     if(TrimmerPage.doesIndexChanges==true){
     if(widget.rebuildScrubber==0){
         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
