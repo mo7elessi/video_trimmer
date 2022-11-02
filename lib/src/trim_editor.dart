@@ -518,8 +518,8 @@ if(widget.flagModel == null){
        TrimmerPage.isWrongStartMuteValueDetected=false; 
     }
     if(TrimmerPage.isWrongEndMuteValueDetected){
-         _startPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-        _videoStartPos = widget.endValue*1000;
+         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _videoEndPos = widget.endValue*1000;
       TrimmerPage.isWrongEndMuteValueDetected=false;
     }
     if(TrimmerPage.doesIndexChanges==true){
