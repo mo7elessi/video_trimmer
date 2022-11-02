@@ -16,8 +16,6 @@ class TrimEditor extends StatefulWidget {
   final endValue;
   final startMute;
   final endMute;
-  final tempMuteStart;
-  final tempMuteEnd;
   List<dynamic>? mutedSections;
 
   /// The Trimmer instance controlling the data.
@@ -194,8 +192,6 @@ class TrimEditor extends StatefulWidget {
     required this.endValue,
     required this.startMute,
     required this.endMute,
-    required this.tempMuteStart,
-    required this.tempMuteEnd, 
     this.maxVideoLength = const Duration(milliseconds: 0),
     this.circleSize = 5.0,
     this.borderWidth = 3,
