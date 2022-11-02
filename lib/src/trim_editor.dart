@@ -16,6 +16,8 @@ class TrimEditor extends StatefulWidget {
   final endValue;
   final startMute;
   final endMute;
+  final tempMuteStart;
+  final tempMuteEnd;
   List<dynamic>? mutedSections;
 
   /// The Trimmer instance controlling the data.
@@ -192,6 +194,8 @@ class TrimEditor extends StatefulWidget {
     required this.endValue,
     required this.startMute,
     required this.endMute,
+    required this.tempMuteStart,
+    required this.tempMuteEnd, 
     this.maxVideoLength = const Duration(milliseconds: 0),
     this.circleSize = 5.0,
     this.borderWidth = 3,
@@ -498,11 +502,13 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-    if(widget.rebuildScrubber==1){
+    if(widget.startMute>tempMuteStart){
         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
         _videoStartPos = widget.startMute*1000;
-       _videoEndPos = widget.endMute*1000; 
+    }
+    if(widget.endMute<tempMuteEnd){
+       _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
+      _videoEndPos = widget.endMute*1000;
     }
     if(TrimmerPage.doesIndexChanges==true){
     if(widget.rebuildScrubber==0){
