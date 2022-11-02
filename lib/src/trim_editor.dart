@@ -352,6 +352,7 @@ if(widget.flagModel == null){
               videoPlayerController.pause();
               widget.onChangePlaybackState!(false);
               _animationController!.stop();
+              print("i am in the process of ending rn");
             } else {
               if (!_animationController!.isAnimating) {
                 widget.onChangePlaybackState!(true);
