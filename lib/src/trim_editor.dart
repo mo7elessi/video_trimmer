@@ -508,6 +508,7 @@ if(widget.flagModel == null){
     if(widget.startMute>widget.tempMuteStart){
         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _videoStartPos = widget.startMute*1000;
+      print("i am here struggling");
     }
     if(widget.endMute<widget.tempMuteEnd){
        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
