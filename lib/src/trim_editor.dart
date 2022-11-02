@@ -500,25 +500,13 @@ if(widget.flagModel == null){
 
   @override
   Widget build(BuildContext context) {
-//     if(widget.rebuildScrubber==1){
-//     if(widget.startMute>widget.tempMuteStart){
-//         _startPos =  Offset((widget.startMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
-//         _videoStartPos = widget.startMute*1000;
-//       print("iam struglling out there $widget.tempMuteStart");
-  
-//     }
-//     if(widget.endMute<widget.tempMuteEnd){
-//        _endPos =  Offset((widget.endMute/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
-//       _videoEndPos = widget.endMute*1000;
-//     }
-//   }
     if(TrimmerPage.isWrongStartMuteValueDetected){
         _startPos =  Offset((widget.startValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
         _videoStartPos = widget.startValue*1000;
        TrimmerPage.isWrongStartMuteValueDetected=false; 
     }
     if(TrimmerPage.isWrongEndMuteValueDetected){
-         _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,0);
+        _endPos =  Offset((widget.endValue/widget.videoDuration.inSeconds)*_thumbnailViewerW,_thumbnailViewerH);
         _videoEndPos = widget.endValue*1000;
       TrimmerPage.isWrongEndMuteValueDetected=false;
     }
